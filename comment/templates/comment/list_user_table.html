@@ -1,0 +1,111 @@
+{% block body %}
+    <div id="content-wrapper">
+        <div class="container-fluid">
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="">Staff Members</a>
+                </li>
+                <li class="breadcrumb-item active"></li>
+            </ol>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    List Of Users
+                    <a  class="btn btn-sm btn-success" href="" style="padding: 8px; float: right; background-color: green; color: white;">Add User</a>
+                </div>
+                <div class="card-body">
+                    {% for message in messages %}
+                        <div class="alert alert-{{ message.tags }} alert-dismissible" role="alert">
+                            {{ message }}
+                        </div>
+                    {% endfor %}
+                    <div class="table-responsive">
+                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                            <thead>
+                            <tr>
+                                <th>No</th>
+                                <th>First Name</th>
+                                <th>Last Name</th>
+                                <th>Email</th>
+                                <th>Action</th>
+                            </tr>
+                            </thead>
+                            <tbody>
+
+                        {% if files %}
+                            {% for file in files %}
+                                <tr>
+                                    <td>{{ forloop.counter }}</td> 
+                                    <td>{{ file.filename }}</td>
+                                    <td>{{ file.owner }}</td>
+                                   <td>
+                                        <button type="button" class="bs-modal read-book btn btn-sm btn-primary" data-form-url="">
+          <span class="fa fa-eye"> View</span>
+        </button>
+                                       <button type="button" class="update-book btn btn-sm btn-success" data-form-url="">
+          <span class="fa fa-pencil"> Edit</span>
+        </button>
+
+
+                                        <button type="button" class="bs-modal delete-book btn btn-sm btn-danger" data-form-url="">
+          <span class="fa fa-trash"> Delete</span>
+        </button>
+                                </tr>
+                            {% endfor %}
+                        {% endif %}
+                            </tbody>
+                        </table>
+                          {% if is_paginated %}
+  <ul class="pagination">
+    {% if page_obj.has_previous %}
+      <li><a href="?page={{ page_obj.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in paginator.page_range %}
+      {% if page_obj.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if page_obj.has_next %}
+      <li><a href="?page={{ page_obj.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Delete Modal-->
+     {% if latest_customer_list %}
+            {% for customer in latest_customer_list %}
+<div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+     aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel" style="color: blue">Ready to Delete?</h5>
+                <button class="close" type="button" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">×</span>
+                </button>
+            </div>
+            <div class="modal-body" style="color: red;"><h5> Select "Delete" below if you want to Delete</h5></div>
+            <div class="modal-footer">
+                <button class="btn btn-success" type="button" data-dismiss="modal">Cancel</button>
+               <a class="btn btn-danger" href="{% url 'admin_deleto' customer.id %}">Delete</a>
+            </div>
+        </div>
+    </div>
+</div>
+  {% endfor %}
+      {% endif %}
+
+  </tbody>
+</table>
+{% endblock %}

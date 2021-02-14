@@ -1,0 +1,70 @@
+{% extends 'dashboard/admin/base.html' %}
+{% load static %}
+
+
+{% block body %}
+<div class="col-md-10 col-sm-4 col-xs-4">
+<div id="content" class="p-8 p-md-5 pt-5">
+    <div class="col-md-12 col-sm-12 col-xs-10">
+            <!-- Breadcrumbs-->
+            <ol class="breadcrumb">
+                <li class="breadcrumb-item">
+                    <a href="#">Know Your Employees</a>
+                </li>
+            </ol>
+            <div class="card mb-3">
+                <div class="card-header">
+                    <i class="fas fa-table"></i>
+                    Add Task Information
+                </div>
+                <div class="card-body">
+               <form action="{% url 'upload_kye' %}" method="POST" enctype="multipart/form-data">
+                {% csrf_token %}
+        <div class="form-group">
+            <div class="row">
+                <div class="col"><input type="text" class="form-control" name="task_title" placeholder="Task Title" required="required"></div>
+                <div class="col"><input type="text" class="form-control" name="task_phases" placeholder="Task Phases" required="required"></div>
+            </div>          
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col"><input type="text" class="form-control" name="task_category" placeholder="Task Category" required="required"></div>
+                <div class="col"><input type="text" class="form-control" name="task_customer" placeholder="Task Customer" required="required"></div>
+            </div>          
+        </div>
+        <div class="form-group">
+            <div class="row">
+                <div class="col"><input type="text" class="form-control" name="task_owner" placeholder="Task Owner" required="required"></div>
+                <div class="col"><input type="text" class="form-control" name="task_revenue" placeholder="Task Revenue" required="required"></div>
+            </div>          
+        </div>
+
+      <div class="form-group">
+            <div class="row">
+                <div class="col"><input type="text" class="form-control" name="task_desc" placeholder="Task Description" required="required"></div>
+                <div class="col"><input type="text" class="form-control" name="task_deadline" placeholder="Task Deadline" required="required"></div>
+            </div>          
+        </div>
+
+                 <div class="form-group">
+            <div class="row">
+                <div class="col"><label>Report</label>
+                    <input type="file" id="myFile" name="report" placeholder="Report Attachment" enctype="multipart/form-data"></div>
+                <div class="col"><div class="col"><label>Invoice</label>
+                    <input type="file" id="myFile" name="invoice" placeholder="Invoice Attachment" enctype="multipart/form-data"></div>
+            </div>          
+        </div>
+
+        <div class="form-group">
+            <button type="submit" class="btn btn-success btn-lg btn-block" href="">Add Now</button>
+        </div>
+    </form>
+
+        </div>
+    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+{% endblock %}

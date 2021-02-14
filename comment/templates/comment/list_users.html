@@ -1,0 +1,89 @@
+{% extends 'comment/base2.html' %}
+
+{% block body %}
+
+  {% include "comment/_modal.html" %}
+
+        <div class="container-fluid">
+        <div class="row">
+          <div class="col-12 mb-3">
+          <div class="col-12 mb-3">
+            {% if files %}
+              {% include "comment/list_user_table.html" %}
+            {% else %}
+              <p class="no-books text-primary">No Files added yet.</p>
+            {% endif %}
+          </div>
+        </div>
+      </div>
+    </div>
+
+{% endblock body %}
+
+{% block extrascripts %}
+  <script type="text/javascript">
+      $(function () {
+          // Log in & Sign up buttons
+          // The formURL is given explicitly
+          $("#login-btn").modalForm({
+            formURL: ""
+          });
+
+          $("#signup-btn").modalForm({
+            formURL: ""
+          });
+
+
+
+          var asyncSuccessMessageUpdate = [
+            "<div ",
+            "style='position:fixed;top:0;z-index:10000;width:100%;border-radius:0;' ",
+            "class='alert alert-icon alert-success alert-dismissible fade show mb-0' role='alert'>",
+            "Success: Data was updated.",
+            "<button type='button' class='close' data-dismiss='alert' aria-label='Close'>",
+            "<span aria-hidden='true'>&times;</span>",
+            "</button>",
+            "</div>",
+            "<script>",
+            "$('.alert').fadeTo(2000, 500).slideUp(500, function () {$('.alert').slideUp(500).remove();});",
+            "<\/script>"
+          ].join("");
+
+
+      function updateBookModalForm() {
+            $(".update-book").each(function () {
+              $(this).modalForm({
+                formURL: $(this).data("form-url"),
+                asyncUpdate: true,
+                asyncSettings: {
+                  closeOnSubmit: false,
+                  successMessage: asyncSuccessMessageUpdate,
+                  dataUrl: "books/",
+                  dataElementId: "#books-table",
+                  dataKey: "table",
+                  addModalFormFunction: updateBookModalForm
+                }
+              });
+            });
+          }
+          updateBookModalForm();
+
+          
+
+
+    
+         
+
+          // Read and Delete book buttons open modal with id="modal"
+          // The formURL is retrieved from the data of the element
+          $(".bs-modal").each(function () {
+              $(this).modalForm({formURL: $(this).data("form-url")});
+          });
+
+          // Hide message
+          $(".alert").fadeTo(2000, 500).slideUp(500, function () {
+              $(".alert").slideUp(500);
+          });
+      });
+  </script>
+{% endblock extrascripts %}

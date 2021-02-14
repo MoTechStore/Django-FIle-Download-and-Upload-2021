@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Web API Model</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+
+
+</head>
+<body>
+<br>
+ <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+  <!-- Collect the nav links, forms, and other content for toggling -->
+    <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+      <ul class="nav navbar-nav center">
+      </ul>
+
+                    <center><h1 style="color: white; padding-left: 0px; font-weight: bold;">ML YouTube Comment Predictor</h1></center>
+
+    </div>
+  </div>
+</nav>
+
+	<!-- Header -->
+	<header id="home">
+		<!-- Background Image -->
+		<div class="bg-img" style="background-image: url({{ url_for('static', filename="img/2.jpg")}}');">
+			<div class="overlay"></div>
+		</div>
+
+		<!-- /Background Image -->
+<!--		<div align="center" class="bg-info">-->
+<!--	<h1>Youtube comments Pedictor</h1></div>-->
+
+
+	<div class="big" align="center">
+		<form action="{{url_for('predictu')}}" method="POST">
+			<h3 style="color:blue" class="text-primary">Enter Your comment Here</h3>
+
+			<textarea name="comment" rows="8" cols="40" required></textarea>
+			<br>
+			<input type="submit" name="" value="Predict" class="btn btn-primary">
+		</form>
+	</div>
+
+</body>
+</html>

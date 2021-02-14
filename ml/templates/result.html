@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Result</title>
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/style.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.css')}}">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='css/bootstrap.min.css')}}">
+
+</head>
+<body>
+	<div class="bg-success" align="center">
+	<h2 style="font-weight : bold">Prediction Result</h2>
+	</div>
+	  <div class="row">
+        <div class="col-md-offset-4 col-md-4">
+     <div class="well">
+     <div class="row">
+	<div align="center">
+		{% if prediction == 1%}
+		<h2 class="text-danger" style="padding-left : 160px; font-weight : bold">Spam</h2>
+		{% elif prediction == 0 %}
+			<h2 class="text-success" style="font-weight : bold">Not a Spam (It is Ham)</h2>
+		{% endif %}
+	</div>
+	 </div>
+	 </div>
+		</div>
+	  </div>
+</body>
+</html>
