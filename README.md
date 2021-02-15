@@ -17,3 +17,4 @@ Then open up your browser on URL, copy and paster this path 127.0.0.1:8000/pelco
 Watch a briefly video here https://www.youtube.com/watch?v=UKJxUnTHl88
 
 
+#python #Django #FIleUploadAndDownload
