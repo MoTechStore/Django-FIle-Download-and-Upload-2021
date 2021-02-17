@@ -20,8 +20,13 @@ Watch a briefly video here https://www.youtube.com/watch?v=UKJxUnTHl88
 #python #Django #FIleUploadAndDownload
 
 
-[alt text](https://github.com/MoTechStore/Django-FIle-Download-and-Upload-2021/blob/ml/media/store/covers/thumb.png?raw=true)
 
 
+DJANGO FILES UPLOAD  AND DOWNLOAD
 
 ![alt text](https://github.com/MoTechStore/Django-FIle-Download-and-Upload-2021/blob/ml/media/store/covers/thumb.png)
+
+
+DON'T FORGET TO SUBSCRIBE
+![alt text](https://github.com/MoTechStore/Django-FIle-Download-and-Upload-2021/blob/ml/media/store/covers/moses.png)
+
