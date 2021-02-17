@@ -21,3 +21,6 @@ Watch a briefly video here https://www.youtube.com/watch?v=UKJxUnTHl88
 
 
 [alt text](https://github.com/MoTechStore/Django-FIle-Download-and-Upload-2021/tree/ml/media/store/covers/thumb.png?raw=true)
+
+
+https://github.com/MoTechStore/Django-FIle-Download-and-Upload-2021/blob/ml/media/store/covers/thumb.png
